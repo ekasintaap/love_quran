@@ -20,7 +20,6 @@ function App() {
               <Route path="surah/:id" element={<SurahComponent/>}/>
               <Route path="juz/:id" element={<JuzComponent/>}/>
               <Route path="info/:id" element={<InfoComponent/>}/>
-              <Route path="*" element={<ErrorPageCom/>}/>
           </Routes>
           <FooterComponent/>
       </div>
