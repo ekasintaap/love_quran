@@ -25,7 +25,7 @@ const JuzComponent=()=>{
             .catch((error)=>{
                 console.log(error, 'error handle arti juz')
             })
-        axios.get("https://api.quran.com/api/v4/recitations/7/by_juz/" +id )
+        axios.get("https://api.quran.com/api/v4/recitations/7/by_juz/" +id + "?per_page=999999999" )
             .then((res)=>{
                 setAudioJuz(res.data.audio_files)
             })
@@ -56,8 +56,8 @@ const JuzComponent=()=>{
                                     </Col>
                                     <Col sm={11}>
                                         <p className="text-end fs-1">{ayatitem.text_uthmani}</p>
-                                        {artiJuz.length? <p className="text-md-start fst-italic" dangerouslySetInnerHTML={{__html:artiJuz[index]?.text}} />:null}
-                                        {audioJuz.length? <audio  className="h-10 mt-2   text-end float-end" src={"https://verses.quran.com/" + audioJuz[index]?.url} controls />:null}
+                                        {artiJuz.length? <p className="text-md-start fst-italic" dangerouslySetInnerHTML={{__html:artiJuz[index].text}} />:null}
+                                        {audioJuz.length? <audio  className="h-10 mt-2   text-end float-end" src={"https://verses.quran.com/" + audioJuz[index].url} controls />:null}
                                     </Col>
                                 </Row>
                             </Card.Body>

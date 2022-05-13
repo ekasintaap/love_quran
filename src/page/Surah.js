@@ -78,8 +78,8 @@ const SurahComponent=()=> {
                                     </Col>
                                     <Col sm={11}>
                                         <p className="text-end fs-1">{ayatitem.text_uthmani}</p>
-                                        {arti.length? <p className="text-md-start fst-italic" dangerouslySetInnerHTML={{__html:arti[index]?.text}} />:null}
-                                        {audioAyat.length? <audio  className="h-10 mt-2   text-end float-end" src={"https://verses.quran.com/" + audioAyat[index]?.url} controls color="primary" />:null}
+                                        {arti.length? <p className="text-md-start fst-italic" dangerouslySetInnerHTML={{__html:arti[index].text}} />:null}
+                                        {audioAyat.length? <audio  className="h-10 mt-2   text-end float-end" src={"https://verses.quran.com/" + audioAyat[index].url} controls color="primary" />:null}
                                     </Col>
                                 </Row>
                             </Card.Body>
