@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Container, Figure, Nav, Navbar, NavDropdown, Offcanvas} from "react-bootstrap";
 import logo from "../img/logoLQ.png"
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import axios from "axios";
 import profil from "../img/profile.png"
 import {FaGithub, FaInstagram, FaLinkedin} from "react-icons/fa";
@@ -50,29 +50,32 @@ const NavbarComponent=()=>{
                                />{' '}
                                    </Link>
                            </Navbar.Brand>
-                           <Nav className="me-auto">
-                               <Navbar  variant="danger" ><Link to="/" className="text-decoration-none text-light">Home</Link></Navbar>
-                           <NavDropdown className="text-white" id="basic-nav-dropdown"
-                                        style={{ maxHeight: "28px" }}
-                                        title={"Juz"}>
-                               <div>
-                               {juz.map((item, index)=>(
-                                   <NavDropdown.Item  key={index} ><Link to={"/juz/"+ item.id} className="text-decoration-none text-dark">Juz {item.id}</Link></NavDropdown.Item>
-                               ))}
-                               </div>
-                           </NavDropdown>
-                           <NavDropdown id="basic-nav-dropdown"
-                                        style={{ maxHeight: "28px" }}
-                                        title={"Info Surah"}>
-                               {surah.map((surahitem, index)=>(
-                               <NavDropdown.Item key={index}><Link to={"/info/" + surahitem.id} className="text-decoration-none text-dark">{surahitem.id}. {surahitem.name_simple}</Link></NavDropdown.Item>
-                               ))}
-                           </NavDropdown>
-                           </Nav>
-                           <Button className="float-end
+                           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                           <Navbar.Collapse id="responsive-navbar-nav">
+                               <Nav className="me-auto">
+                                   <Nav.Link  variant="danger" ><NavLink to="/" className="text-decoration-none text-light">Home</NavLink></Nav.Link>
+                                   <NavDropdown className="text-white" id="collasible-nav-dropdown"
+                                                style={{ maxHeight: "28px" }}
+                                                title={"Juz"}>
+                                       <div>
+                                           {juz.map((item, index)=>(
+                                               <NavDropdown.Item  key={index} ><Link to={"/juz/"+ item.id} className="text-decoration-none text-dark">Juz {item.id}</Link></NavDropdown.Item>
+                                           ))}
+                                       </div>
+                                   </NavDropdown>
+                                   <NavDropdown id="collasible-nav-dropdown"
+                                                style={{ maxHeight: "28px" }}
+                                                title={"Info Surah"}>
+                                       {surah.map((surahitem, index)=>(
+                                           <NavDropdown.Item key={index}><Link to={"/info/" + surahitem.id} className="text-decoration-none text-dark">{surahitem.id}. {surahitem.name_simple}</Link></NavDropdown.Item>
+                                       ))}
+                                   </NavDropdown>
+                                   <Button className="float-end
                                " variant="success" onClick={handleShow}>
-                               About
-                           </Button>
+                                       About
+                                   </Button>
+                               </Nav>
+                           </Navbar.Collapse>
                        </Container>
                    </Navbar>
 
